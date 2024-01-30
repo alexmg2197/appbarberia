@@ -1,3 +1,8 @@
+:root{
+  --root-color1 :rgb(254, 34, 26)
+  --root-color2 :rgb(0, 93, 177)
+}
+
 .App {
   text-align: center;
 }
