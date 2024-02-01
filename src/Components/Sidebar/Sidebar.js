@@ -3,17 +3,22 @@ import Logo from '../../img/logobarber.png'
 
 const Sidebar = () => { 
     return (
-        <div className='container m-0 p-0 sidebar'>
-            <div className="row"> 
-        <div className='d-flex col-md-3'>
-                    <ul class="nav nav-tabs flex-column">
-                        <li className='nav-item'>
-                            <a href="/Inicio">
+
+        <aside className="main-sidebar">
+            
+            <div className='sidebar'>
+                <a href="/Inicio">
                             <img src={Logo} alt="logo" className='img'/>
-                            </a>
-                        </li>
-                <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">Active</a>
+                </a>
+                <nav className='mt-2'>
+
+                    <ul className="nav nav-pills nav-sidebar flex-column"
+                        data-widget="treeview"
+                        role="menu"
+                        data-accordion="false">
+                        <li className="nav-item">
+                            
+                    <a className="nav-link " href="/"><i className="nav-icon fas fa-home"></i>Active</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
@@ -25,10 +30,11 @@ const Sidebar = () => {
                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
+                </nav>
             
          </div>
-            </div>
-              </div>
+            </aside>
+       
 )
 }
 

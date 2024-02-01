@@ -1,11 +1,7 @@
-.sidebar{
+.main-sidebar{
     background-color: rgb(254, 34, 26);
-    min-height: 100vh;
-    max-width: 15vh;
-}
-.sidebar:hover{
-    max-width: 30vh;
-}
+
+} 
 .img{
-    max-width: 100%;
+    max-width: 15vh;
 }
