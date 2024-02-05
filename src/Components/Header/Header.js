@@ -5,9 +5,8 @@ import 'admin-lte/plugins/fontawesome-free/css/all.min.css';
 import 'admin-lte/dist/js/adminlte.min.js';
 
 const Header = () => {
-    return (
-        
-          <nav className="main-header navbar navbar-expand navbar-white navbar-light">
+  return (
+    <nav className="main-header navbar navbar-expand header">
       {/* Left navbar links */}
       <ul className="navbar-nav">
         <li className="nav-item">
@@ -46,7 +45,7 @@ const Header = () => {
         {/* Add more right navbar links as needed */}
       </ul>
     </nav>
-    )
-    
+  )
+
 }
 export default Header
