@@ -1,7 +1,22 @@
 .main-sidebar{
-    background-color: rgb(254, 34, 26);
+    background-color: var(--root-color2);
 
 } 
+p{
+    color: azure;
+    font-size: 20px;
+}
+i{
+    color: azure;
+    font-size: 20px;
+}
+.nav-pills .ni:hover>.nl{
+    color: var(--root-color2);
+}
+.nav-pills .ni.active>.nl{
+    color: var(--root-color2);
+    background-color: white;
+}
 .img{
     max-width: 15vh;
 }
