@@ -1,22 +1,25 @@
-.main-sidebar{
+.main-sidebar {
     background-color: var(--root-color2);
 
-} 
-p{
+}
+
+.nav-pills .nav-item .nav-link {
     color: azure;
     font-size: 20px;
 }
-i{
-    color: azure;
-    font-size: 20px;
-}
-.nav-pills .ni:hover>.nl{
-    color: var(--root-color2);
-}
-.nav-pills .ni.active>.nl{
-    color: var(--root-color2);
-    background-color: white;
-}
-.img{
+
+.img {
     max-width: 15vh;
+}
+
+.nav-pills .nav-item:hover>.nav-link {
+    background-color: azure !important;
+    color: var(--root-color2) !important;
+}
+
+.nav-pills .nav-item.active>.nav-link {
+    background-color: azure !important;
+    /* Cambia a tu color deseado */
+    color: var(--root-color2) !important;
+    /* Cambia a tu color deseado para el texto */
 }
