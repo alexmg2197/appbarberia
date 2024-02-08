@@ -2,7 +2,8 @@ import { React, useEffect, useState } from "react";
 import './sidebar.css'
 import Logo from '../../img/55f40fef78a2107cc324218c819679c8.png'
 
-const Sidebar = () => {
+const Sidebar = ({ setMostrar }) => {
+
     const [mostrarElementos, setMostrarElementos] = useState(true);
 
     const toggleVisibilidad = () => {
@@ -39,14 +40,14 @@ const Sidebar = () => {
                             <ul class="nav nav-treeview">
                                 {
                                     mostrarElementos && (
-                                        <div className="ms-3">
+                                        <div className="">
                                             <li className="nav-item ">
-                                                <a className="nav-link " href="/">
+                                                <a className="nav-link " onClick={() => { setMostrar(1) }}>
                                                     <i class="nav-icon fa-solid fa-calendar-plus"></i> <p>Crear Cita</p>
                                                 </a>
                                             </li>
                                             <li className="nav-item ">
-                                                <a className="nav-link " href="/">
+                                                <a className="nav-link " onClick={() => { setMostrar(2) }}>
                                                     <i class="nav-icon fa-solid fa-eye"></i> <p>Ver Citas</p>
                                                 </a>
                                             </li>

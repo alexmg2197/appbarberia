@@ -9,7 +9,8 @@
 }
 
 .img {
-    max-width: 15vh;
+    max-width: 100%;
+        height: auto;
 }
 
 .nav-pills .nav-item:hover>.nav-link {
@@ -22,4 +23,17 @@
     /* Cambia a tu color deseado */
     color: var(--root-color2) !important;
     /* Cambia a tu color deseado para el texto */
+}
+.sidebar {
+    width: 250px;
+    /* Ancho inicial del sidebar */
+    transition: width 0.3s ease;
+    /* Transición suave de la propiedad width */
+}
+
+.content {
+    margin-left: 250px;
+    /* Espacio para el sidebar */
+    transition: margin-left 0.3s ease;
+    /* Transición suave de la propiedad margin-left */
 }
