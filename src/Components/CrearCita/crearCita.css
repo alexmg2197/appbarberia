@@ -1,0 +1,23 @@
+/* Estilos para el reloj */
+.custom-clock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+/* Estilos para las horas */
+.custom-hour {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+/* Estilos para los minutos */
+.custom-minute {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 5px;
+    cursor: pointer;
+}
