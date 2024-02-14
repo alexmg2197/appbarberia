@@ -31,24 +31,24 @@ const Sidebar = ({ setMostrar }) => {
                         </li>
                         <li className="nav-item menu-open">
                             <a className="nav-link" onClick={toggleVisibilidad}>
-                                <i class="nav-icon fa-sharp fa-solid fa-calendar-days"></i>
+                                <i className="nav-icon fa-sharp fa-solid fa-calendar-days"></i>
                                 <p>Cita
-                                    {mostrarElementos ? < i class="right fas fa-angle-left"></i> : < i class="right fas fa-angle-up"></i>}
+                                    {mostrarElementos ? < i className="right fas fa-angle-left"></i> : < i className="right fas fa-angle-up"></i>}
 
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
+                            <ul className="nav nav-treeview">
                                 {
                                     mostrarElementos && (
                                         <div className="">
                                             <li className="nav-item ">
                                                 <a className="nav-link " onClick={() => { setMostrar(1) }}>
-                                                    <i class="nav-icon fa-solid fa-calendar-plus"></i> <p>Crear Cita</p>
+                                                    <i className="nav-icon fa-solid fa-calendar-plus"></i> <p>Crear Cita</p>
                                                 </a>
                                             </li>
                                             <li className="nav-item ">
                                                 <a className="nav-link " onClick={() => { setMostrar(2) }}>
-                                                    <i class="nav-icon fa-solid fa-eye"></i> <p>Ver Citas</p>
+                                                    <i className="nav-icon fa-solid fa-eye"></i> <p>Ver Citas</p>
                                                 </a>
                                             </li>
                                         </div>
@@ -58,23 +58,23 @@ const Sidebar = ({ setMostrar }) => {
                         </li>
                         <li className="nav-item">
 
-                            <a className="nav-link" href="/"><i class="nav-icon fa-solid fa-hand-holding-dollar"></i> <p>Cobro</p> </a>
+                            <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-hand-holding-dollar"></i> <p>Cobro</p> </a>
                         </li>
                         <li className="nav-item">
 
-                            <a className="nav-link" href="/"><i class="nav-icon fa-solid fa-user-tie"></i> <p>Clientes</p> </a>
+                            <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-user-tie"></i> <p>Clientes</p> </a>
                         </li>
                         <li className="nav-item">
 
-                            <a className="nav-link" href="/"><i class="nav-icon fa-solid fa-scissors"></i><p>Barbero</p> </a>
+                            <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-scissors"></i><p>Barbero</p> </a>
                         </li>
                         <li className="nav-item">
 
-                            <a className="nav-link" href="/"><i class="nav-icon fa-solid fa-cart-flatbed"></i> <p>Inventario</p> </a>
+                            <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-cart-flatbed"></i> <p>Inventario</p> </a>
                         </li>
                         <li className="nav-item">
 
-                            <a className="nav-link" href="/"><i class="nav-icon fa-solid fa-clipboard-list"></i> <p>Servicios</p> </a>
+                            <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-clipboard-list"></i> <p>Servicios</p> </a>
                         </li>
 
                     </ul>
