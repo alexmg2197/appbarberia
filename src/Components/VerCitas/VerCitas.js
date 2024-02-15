@@ -13,6 +13,16 @@ const VerCitas = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
+    const [activeButton, setActiveButton] = useState(null);
+    const [activeButton1, setActiveButton1] = useState(null);
+
+
+    const handleButtonClick = (buttonName) => {
+        setActiveButton(buttonName);
+    };
+    const handleButtonClick1 = (buttonName) => {
+        setActiveButton1(buttonName);
+    };
 
     const handleEventClick = event => {
         setSelectedEvent(event);
@@ -52,18 +62,78 @@ const VerCitas = () => {
             end: new Date(2024, 1, 14, 13, 0),
         },
     ];
+
+    const CustomToolbar = toolbar => {
+        const goToBack = () => {
+            toolbar.date.setMonth(toolbar.date.getMonth() - 1);
+            toolbar.onNavigate('prev');
+            handleButtonClick('prev')
+        };
+        const goToToday = () => {
+            toolbar.onNavigate('TODAY');
+            handleButtonClick('today')
+        };
+
+        const goToNext = () => {
+            toolbar.date.setMonth(toolbar.date.getMonth() + 1);
+            toolbar.onNavigate('next');
+            handleButtonClick('next')
+        };
+
+        const onViewMonth = () => {
+            toolbar.onView('month')
+            handleButtonClick1('month')
+        }
+
+        const onViewWeek = () => {
+            toolbar.onView('week')
+            handleButtonClick1('week')
+        }
+        const onViewDay = () => {
+            toolbar.onView('day')
+            handleButtonClick1('day')
+        }
+        const onViewAgenda = () => {
+            toolbar.onView('agenda')
+            handleButtonClick1('agenda')
+        }
+
+        return (
+            <div className="rbc-toolbar">
+                <span className="rbc-btn-group-angle">
+                    <button type="button" onClick={goToBack} className={`rbc-btn ${activeButton === 'prev' ? 'active' : ''}`}><i class="fa-solid fa-angle-left"></i></button>
+                    <button type="button" onClick={goToToday} className={`rbc-btn ${activeButton === 'today' ? 'active' : ''}`}>Hoy</button>
+                    <button type="button" onClick={goToNext} className={`rbc-btn ${activeButton === 'next' ? 'active' : ''}`}><i class="fa-solid fa-angle-right"></i></button>
+                </span>
+                <span className="rbc-toolbar-label">{toolbar.label}</span>
+                <span className="rbc-btn-group-agenda">
+                    <button type="button" onClick={onViewMonth} className={`rbc-btn-agenda ${activeButton1 === 'month' ? 'active' : ''}`}>Mes</button>
+                    <button type="button" onClick={onViewWeek} className={`rbc-btn-agenda ${activeButton1 === 'week' ? 'active' : ''}`}>Semana</button>
+                    <button type="button" onClick={onViewDay} className={`rbc-btn-agenda ${activeButton1 === 'day' ? 'active' : ''}`}>Día</button>
+                    <button type="button" onClick={onViewAgenda} className={`rbc-btn-agenda ${activeButton1 === 'agenda' ? 'active' : ''}`}>Agenda</button>
+                </span>
+            </div>
+        );
+    };
+
+
     return (
         <div className='container'>
-            <div className='container-fluid w-100' style={{ height: 500 }}>
-                <Calendar
-                    localizer={localizer}
-                    events={events}
-                    startAccessor="start"
-                    endAccessor="end"
-                    style={{ margin: '50px' }}
-                    messages={messages}
-                    onSelectEvent={handleEventClick}
-                />
+            <div className='cont-calendar'>
+                <div className='container-fluid w-100' style={{ height: 500 }}>
+                    <Calendar
+                        localizer={localizer}
+                        events={events}
+                        startAccessor="start"
+                        endAccessor="end"
+                        style={{ margin: '50px' }}
+                        messages={messages}
+                        onSelectEvent={handleEventClick}
+                        components={{
+                            toolbar: CustomToolbar
+                        }}
+                    />
+                </div>
                 <Modal show={showModal} onHide={handleCloseModal}>
                     <Modal.Header closeButton>
                         <Modal.Title>{selectedEvent && selectedEvent.title}</Modal.Title>

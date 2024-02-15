@@ -1,0 +1,51 @@
+.cont-calendar{
+    margin: '50px';
+    height: '500'
+}
+/* Estilos para los botones del calendario */
+.cont-calendar .rbc-btn-group-angle .rbc-btn  {
+    background-color: #ff0000 !important;
+    /* Cambia el color de fondo */
+    color: #fff !important;
+    /* Cambia el color del texto */
+    border: none;
+    /* Cambia el color del borde */
+    border-radius: 4px !important;
+    /* Cambia el radio del borde */
+    padding: 8px 12px !important;
+    /* Cambia el espaciado interno */
+    font-size: 14px !important;
+    /* Cambia el tamaño de la fuente */
+    margin-right: 5px !important;
+    cursor: pointer !important;
+}
+
+/* Estilos para los botones cuando están activos o tienen foco */
+.cont-calendar .rbc-btn-group-angle .rbc-btn.active{
+background-color: #0056b3 !important;
+    outline: none !important;
+    /* Evita el contorno predeterminado */
+}
+/* Estilos para los botones del calendario */
+.cont-calendar .rbc-btn-group-agenda .rbc-btn-agenda  {
+    background-color: #ff0000 !important;
+        /* Cambia el color de fondo */
+        color: #fff !important;
+        /* Cambia el color del texto */
+        border: none;
+        /* Cambia el color del borde */
+        border-radius: 4px !important;
+        /* Cambia el radio del borde */
+        padding: 8px 12px !important;
+        /* Cambia el espaciado interno */
+        font-size: 14px !important;
+        /* Cambia el tamaño de la fuente */
+        margin-right: 5px !important;
+        cursor: pointer !important;
+}
+
+/* Estilos para los botones cuando están activos o tienen foco */
+.cont-calendar .rbc-btn-group-agenda .rbc-btn-agenda.active {
+background-color: #0056b3 !important;
+    outline: none !important;
+}

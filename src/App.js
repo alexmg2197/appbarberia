@@ -14,8 +14,8 @@ function App() {
   moment.tz.setDefault('America/Mexico_City');
   return (
     <BrowserRouter>
-      <Sidebar />
       <Header />
+      <Sidebar />
       <Routes>
         <Route exact path="/" element={<Inicio />} />
       </Routes>
