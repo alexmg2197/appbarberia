@@ -4,10 +4,14 @@ import Logo from '../../img/55f40fef78a2107cc324218c819679c8.png'
 
 const Sidebar = ({ setMostrar }) => {
 
-    const [mostrarElementos, setMostrarElementos] = useState(true);
+    const [mostrarCitas, setMostrarCitas] = useState(true);
+    const [mostrarClientes, setMostrarClientes] = useState(true);
 
-    const toggleVisibilidad = () => {
-        setMostrarElementos(!mostrarElementos);
+    const toggleVisibilidadCitas = () => {
+        setMostrarCitas(!mostrarCitas);
+    };
+    const toggleVisibilidadClientes = () => {
+        setMostrarClientes(!mostrarClientes);
     };
 
     return (
@@ -30,20 +34,22 @@ const Sidebar = ({ setMostrar }) => {
                             <a className="nav-link" href="/"><i className="nav-icon fas fa-home"></i> <p>Home</p> </a>
                         </li>
                         <li className="nav-item menu-open">
-                            <a className="nav-link" onClick={toggleVisibilidad}>
+                            <a className="nav-link" onClick={toggleVisibilidadCitas}>
                                 <i className="nav-icon fa-sharp fa-solid fa-calendar-days"></i>
                                 <p>Cita
-                                    {mostrarElementos ? < i className="right fas fa-angle-left"></i> : < i className="right fas fa-angle-up"></i>}
+                                    {mostrarCitas ? < i className="right fas fa-angle-left"></i> : < i className="right fas fa-angle-up"></i>}
 
                                 </p>
                             </a>
-                            <ul className="nav nav-treeview">
-                                {
-                                    mostrarElementos && (
+                            {
+                                mostrarCitas && (
+                                    <ul className="nav nav-treeview">
                                         <div className="">
                                             <li className="nav-item ">
                                                 <a className="nav-link " onClick={() => { setMostrar(1) }}>
-                                                    <i className="nav-icon fa-solid fa-calendar-plus"></i> <p>Crear Cita</p>
+                                                    <i className="nav-icon fa-solid fa-calendar-plus"></i>
+                                                    <p>Crear Cita
+                                                    </p>
                                                 </a>
                                             </li>
                                             <li className="nav-item ">
@@ -52,31 +58,48 @@ const Sidebar = ({ setMostrar }) => {
                                                 </a>
                                             </li>
                                         </div>
-                                    )
-                                }
-                            </ul>
+                                    </ul>
+                                )
+                            }
                         </li>
                         <li className="nav-item">
-
-                            <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-hand-holding-dollar"></i> <p>Cobro</p> </a>
+                            <a className="nav-link" onClick={() => { setMostrar(3) }}><i className="nav-icon fa-solid fa-hand-holding-dollar"></i> <p>Cobro</p> </a>
                         </li>
                         <li className="nav-item">
-
-                            <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-user-tie"></i> <p>Clientes</p> </a>
+                            <a className="nav-link" onClick={toggleVisibilidadClientes}>
+                                <i className="nav-icon fa-solid fa-user-tie"></i>
+                                <p>Clientes      {mostrarClientes ? < i className="right fas fa-angle-left"></i> : < i className="right fas fa-angle-up"></i>}</p>
+                            </a>
+                            {
+                                mostrarClientes && (
+                                    <ul className="nav nav-treeview">
+                                        <div className="">
+                                            <li className="nav-item ">
+                                                <a className="nav-link " onClick={() => { setMostrar(4) }}>
+                                                    <i class="nav-icon fa-solid fa-user-plus"></i>
+                                                    <p>Registrar Cliente
+                                                    </p>
+                                                </a>
+                                            </li>
+                                            <li className="nav-item ">
+                                                <a className="nav-link " onClick={() => { setMostrar(5) }}>
+                                                    <i className="nav-icon fa-solid fa-eye"></i> <p>Ver Clientes</p>
+                                                </a>
+                                            </li>
+                                        </div>
+                                    </ul>
+                                )
+                            }
                         </li>
                         <li className="nav-item">
-
                             <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-scissors"></i><p>Barbero</p> </a>
                         </li>
                         <li className="nav-item">
-
                             <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-cart-flatbed"></i> <p>Inventario</p> </a>
                         </li>
                         <li className="nav-item">
-
                             <a className="nav-link" href="/"><i className="nav-icon fa-solid fa-clipboard-list"></i> <p>Servicios</p> </a>
                         </li>
-
                     </ul>
                 </nav>
             </div>

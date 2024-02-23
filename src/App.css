@@ -41,3 +41,18 @@
     transform: rotate(360deg);
   }
 }
+
+.eti-err {
+  color: red;
+}
+
+.mark_wrong {
+  border-color: red;
+}
+
+.mark_wrong:focus {
+  /* background-color: red; */
+  border-color: red !important;
+  outline: none;
+  box-shadow: 0 1px 1px red inset, 0 0 8px red;
+}
