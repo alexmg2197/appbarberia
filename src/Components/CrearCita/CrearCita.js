@@ -6,8 +6,38 @@ import 'react-datepicker/dist/react-datepicker.css';
 import TimePicker from 'react-time-picker';
 import 'react-time-picker/dist/TimePicker.css';
 import 'react-clock/dist/Clock.css';
+import { getAPI } from "../../utils/useAxios";
 
 const CrearCita = () => {
+
+    const [clientes, setClientes] = useState([]);
+    const [barberos, setBarberos] = useState([]);
+    const [servicios, setServicios] = useState([]);
+
+    useEffect(() => {
+        getAPI('ListarServicios')
+            .then((response) => {
+                setServicios(response.data)
+                console.log(response.data)
+            })
+    }, [])
+
+    useEffect(() => {
+        getAPI('ListarClientes')
+            .then((response) => {
+                setClientes(response.data)
+                console.log(response.data)
+            })
+    }, [])
+
+    useEffect(() => {
+        getAPI('ListarBarberos')
+            .then((response) => {
+                setBarberos(response.data)
+                console.log(response.data)
+            })
+    }, [])
+
     return (
         <div>
             <div className="d-flex justify-content-center">
@@ -35,13 +65,16 @@ const CrearCita = () => {
                             if (!values.servicio) errors.servicio = 'El servicio es indespensable'
                             return errors;
                         }}
-                        onSubmit={(values) => {
+                        onSubmit={(values, { resetForm }) => {
                             const jsonValues = JSON.stringify(values);
                             let a = values.date
                             let b = a.toLocaleDateString('es-ES') //Fecha en formato dd/mm/yyyyy
                             console.log(b)
                             console.log(values.hora)
                             console.log(jsonValues);
+                            // const cita {
+
+                            // }
                         }}
                     >
                         {
@@ -86,36 +119,42 @@ const CrearCita = () => {
                                         <div className="form-group col-6">
                                             <label htmlFor='cliente'>Cliente</label>
                                             <select id='cliente' className="form-control" onChange={(val) => { setFieldValue('cliente', val.target.value) }} value={values.cliente}>
-                                                <option key='1' value='option 1'>option 1</option>
-                                                <option key='2' value='option 2'>option 2</option>
-                                                <option key='3' value='option 3'>option 3</option>
-                                                <option key='4' value='option 4'>option 4</option>
-                                                <option key='5' value='option 5'>option 5</option>
-                                                <option key='6' value='option 6'>option 6</option>
+                                                <option selected>---Selecciona un Cliente---</option>
+                                                {
+                                                    clientes.map((cliente) => {
+                                                        return (
+                                                            <option key={cliente.IdCliente} value={cliente.IdCliente}>{cliente.Nombre}</option>
+                                                        )
+                                                    })
+                                                }
                                             </select>
                                             <p>{errors.cliente}</p>
                                         </div>
                                         <div className="form-group col-6">
                                             <label>Barbero</label>
                                             <select className="form-control" onChange={(val) => { setFieldValue('barbero', val.target.value) }} value={values.barbero}>
-                                                <option key='1' value='option 1'>option 1</option>
-                                                <option key='2' value='option 2'>option 2</option>
-                                                <option key='3' value='option 3'>option 3</option>
-                                                <option key='4' value='option 4'>option 4</option>
-                                                <option key='5' value='option 5'>option 5</option>
-                                                <option key='6' value='option 6'>option 6</option>
+                                                <option selected>---Selecciona un Barbero---</option>
+                                                {
+                                                    barberos.map((barbero) => {
+                                                        return (
+                                                            <option key={barbero.IdBarbero} value={barbero.IdBarbero}>{barbero.Nombre}</option>
+                                                        )
+                                                    })
+                                                }
                                             </select>
                                             <p>{errors.barbero}</p>
                                         </div>
                                         <div className="form-group col-6">
                                             <label>Servicio</label>
                                             <select className="form-control" onChange={(val) => { setFieldValue('servicio', val.target.value) }} value={values.servicio}>
-                                                <option key='1' value='option 1'>option 1</option>
-                                                <option key='2' value='option 2'>option 2</option>
-                                                <option key='3' value='option 3'>option 3</option>
-                                                <option key='4' value='option 4'>option 4</option>
-                                                <option key='5' value='option 5'>option 5</option>
-                                                <option key='6' value='option 6'>option 6</option>
+                                                <option selected>---Selecciona un Servicio---</option>
+                                                {
+                                                    servicios.map((servicio) => {
+                                                        return (
+                                                            <option key={servicio.IdServicio} value={servicio.IdServicio}>{servicio.Nombre}</option>
+                                                        )
+                                                    })
+                                                }
                                             </select>
                                             <p>{errors.servicio}</p>
                                         </div>

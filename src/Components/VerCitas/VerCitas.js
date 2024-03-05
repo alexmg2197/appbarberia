@@ -1,11 +1,12 @@
 import './verCitas.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/es';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
+import { getAPI } from "../../utils/useAxios";
 
 const VerCitas = () => {
 
@@ -15,7 +16,15 @@ const VerCitas = () => {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [activeButton, setActiveButton] = useState(null);
     const [activeButton1, setActiveButton1] = useState(null);
+    const [reserva, setReserva] = useState([])
 
+    useEffect(() => {
+        getAPI('ListarReservas')
+            .then((response) => {
+                setReserva(response.data)
+                console.log(response.data)
+            })
+    }, [])
 
     const handleButtonClick = (buttonName) => {
         setActiveButton(buttonName);
